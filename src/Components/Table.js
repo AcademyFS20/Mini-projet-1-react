@@ -18,7 +18,7 @@ function Table() {
           <tbody>
               {
                   dataBook.map((item)=>{
-                      return <Row title={item.title} nbpages={item.nbpages} author={item.author} category={item.category}/>
+                      return <Row id={item.id} title={item.title} nbpages={item.nbpages} author={item.author} category={item.category}/>
                   })
               }
           </tbody>
