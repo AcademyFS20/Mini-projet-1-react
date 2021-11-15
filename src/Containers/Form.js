@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Boutton from '../Components/Boutton';
-
+import '../index.css';
 class Form extends Component {
     state = {
         bookname:"",
@@ -22,9 +22,9 @@ class Form extends Component {
                     <div className="form-group">
                         <input type="number" className="form-control" placeholder="0" onChange={(e)=>{this.setState({nbrepages:e.target.value})}}/>
                     </div>
-                    <div>
-                        <label htmlFor="">Category:</label>
-                        <select className="form-group" value={this.state.value} onChange={(e)=>{this.setState({value:e.target.value})}}>
+                    <div className="form-group">
+                        <label htmlFor="category">Category:</label>
+                        <select className="form-control" value={this.state.value} id='category' name='category' onChange={(e)=>{this.setState({value:e.target.value})}}>
                             <option value="fantasy">Fantasy</option>
                             <option value="classics">Classics</option>
                             <option value="Literally fiction">Literally fiction</option>

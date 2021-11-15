@@ -30,3 +30,11 @@ button
   display:block;
   margin:10px 50% 10px 50%;
 }
+.form-group
+{
+  margin-bottom:20px;
+}
+h2
+{
+  text-align:center;
+}
