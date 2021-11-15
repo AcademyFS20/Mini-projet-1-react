@@ -1,47 +1,23 @@
 import React,{useState} from 'react';
 import './index.css';
+import Boutton from './Components/Boutton';
+import Table from './Components/Table';
+import Form from './Containers/Form';
 function App() {
-  let [name,setName]=useState("");
-  let [email,setEmail]=useState("");
-  const changeName=()=>
+  const [state,setState]=useState(false);
+  let name="create";
+  if(state===true)
   {
-    let inputName=document.getElementById("name");
-    name=inputName.value;
-    setName(name);
-    console.log(name);
-  }
-  const changeEmail=()=>
-  {
-    const inputEmail=document.getElementById("email");
-    email=inputEmail.value;
-    setEmail(email);
-    console.log(email);
-  }
-  const addItems=()=>
-  {
-    const div=document.createElement("div");
-    div.innerHTML=`
-    <input type="text" id="name1" name="name"/>
-    <input type="email" id="email1" name="email"/>
-    `;
-    const body=document.querySelector("body");
-    body.appendChild(div);
-    const inputEmail=div.children[0];
-    const inputName=div.children[1];
-    inputEmail.value=email;
-    inputName.value=name;
+    name="save";
   }
   return (
     <div className="App">
-      <div className="form-group">
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" onChange={changeName}/>
-      </div>
-      <div className="form-group">
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" onChange={changeEmail}/>
-      </div>
-      <button type="button" onClick={addItems}>Add person</button>
+      <h1>Admin Dashboard Books</h1>
+      <Table/>
+      {
+        state===true && <Form/>
+        }
+      <Boutton type="button" classname="btn btn-success" name={name} onclick={()=>{setState(!state)}}/>
     </div>
   );
 }

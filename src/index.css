@@ -3,3 +3,30 @@ img
   height:100px;
   width:100px;
 }
+thead tr
+{
+  background-color:green;
+}
+thead tr th
+{
+  color:white;
+}
+h1
+{
+  text-align:center;
+  margin-bottom:50px;
+}
+.td-btn
+{
+  display:flex;
+  justify-content:center;
+}
+button
+{
+  margin-right:10px;
+}
+.btn-success
+{
+  display:block;
+  margin:10px 50% 10px 50%;
+}
