@@ -3,6 +3,7 @@ import Boutton from '../Components/Boutton';
 import '../index.css';
 class Form extends Component {
     state = {
+        id:4,
         bookname:"",
         authorname:"",
         nbrepages:0,
@@ -10,7 +11,13 @@ class Form extends Component {
         errorName:"",
         errorAuthor:"",
         errorPages:"",
+        databook:[]
     }
+    // handleCategory=(e)=>
+    // {
+    //     this.setState({category:e.target.value});
+    //     this.props.onChange(e.target.value)}
+    // }
     validate=(e)=>
     {
         let valid=true;
@@ -32,13 +39,24 @@ class Form extends Component {
         }
         if(valid)
         {
-            this.props.data.push({id:4,
+            let id=this.state.id;
+            id++;
+            console.log(id);
+            this.setState({id:id});
+            this.setState({errorName:''});
+            this.setState({errorAuthor:""});
+            this.setState({errorPages:''});
+            this.props.data.push({id:this.state.id,
                 title : this.state.bookname,
                 nbpages : this.state.nbrepages,
                 author:this.state.authorname,
                 category:this.state.category})
             this.setState({databook:this.props.data})
+            // console.log('hello')
+            this.props.onclick(this.props.data)
         }
+        
+        return valid;
     }
     render() {
         return (

@@ -20,21 +20,21 @@ class Books extends Component {
                   <thead>
                       <tr>
                           <th>Book Name</th>
-                          <th>Autor</th>
+                          <th>Nb pages</th>
+                          <th>Author</th>
                           <th>Category</th>
-                          <th>NB pages</th>
                           <th>Actions</th>
                       </tr>
                   </thead>
                   <tbody>
                       { 
                           this.state.databook.map((item)=>{
-                              return <Row id={item.id} title={item.title} nbpages={item.nbpages} author={item.author} category={item.category}/>
+                              return <Row data={this.state.databook} id={item.id} title={item.title} nbpages={item.nbpages} author={item.author} category={item.category} onclick={(value)=>{this.setState({databook:value})}}/>
                           })
                       } 
                   </tbody></table>
                   {
-        this.state.bool===true && <Form data={this.state.databook}/>
+        this.state.bool===true && <Form data={this.state.databook} onclick={(value)=>{this.setState({databook:value})}}/>
         }
       <Boutton type="button" classname="btn btn-success" name={name} onclick={()=>{this.setState({bool:!this.state.bool})}}/>
               

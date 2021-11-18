@@ -7,7 +7,8 @@ class Formint extends Component {
     render() {
         return (
             <div>
-                <input type="text" value={this.props.value} onChange={(e)=>{this.setState({value:e.target.value})}}/>
+                <input type="text" value={this.state.value} onChange={(e)=>{this.setState({value:e.target.value})
+            this.props.onchange(e.target.value);console.log(e.target.value)}}/>
             </div>
         );
     }
