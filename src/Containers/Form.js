@@ -27,15 +27,27 @@ class Form extends Component {
             this.setState({errorName:'Il manque le nom du book'});
             valid=false;
         }
+        else
+        {
+            this.setState({errorName:''});
+        }
         if(this.state.authorname==="")
         {
             this.setState({errorAuthor:"Il manque l'auteur du book"});
             valid=false;
         }
+        else
+        {
+            this.setState({errorAuthor:''});
+        }
         if(this.state.nbrepages===0)
         {
             this.setState({errorPages:'Il manque le nbre de pages'});
             valid=false;
+        }
+        else
+        {
+            this.setState({errorPages:''});
         }
         if(valid)
         {
@@ -65,15 +77,15 @@ class Form extends Component {
                     <h2>Book info</h2>
                     <div className="form-group">
                         <input type="text" className="form-control" placeholder="Book name*" onChange={(e)=>{this.setState({bookname:e.target.value})}}/>
-                        <p>{this.state.errorName}</p>
+                        <p className="error">{this.state.errorName}</p>
                     </div>
                     <div className="form-group">
                         <input type="text" className="form-control" placeholder="author name*" onChange={(e)=>{this.setState({authorname:e.target.value})}}/>
-                        <p>{this.state.errorAuthor}</p>
+                        <p className="error">{this.state.errorAuthor}</p>
                     </div>
                     <div className="form-group">
                         <input type="number" className="form-control" placeholder="0" onChange={(e)=>{this.setState({nbrepages:e.target.value})}}/>
-                        <p>{this.state.errorPages}</p>
+                        <p className="error">{this.state.errorPages}</p>
                     </div>
                     <div className="form-group">
                         <label htmlFor="category">Category:</label>
